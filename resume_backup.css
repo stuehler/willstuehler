@@ -1,0 +1,398 @@
+/* ============================================
+   CSS VARIABLES — Edit these to restyle globally
+   ============================================ */
+:root {
+    --color-text: #1a1a1a;
+    --color-text-secondary: #444;
+    --color-accent: #1a3a5c;
+    --color-rule: #1a3a5c;
+    --color-link: #1a3a5c;
+
+    --font-heading: 'EB Garamond', 'Georgia', serif;
+    --font-body: 'Lato', 'Helvetica Neue', sans-serif;
+
+    --page-width: 8.5in;
+    --page-min-height: 11in;
+    --page-margin-x: 0.6in;
+    --page-margin-top: 0.45in;
+    --page-margin-bottom: 0.45in;
+
+    --section-gap: 0.2in;
+    --item-gap: 0.08in;
+
+    --font-size-name: 26pt;
+    --font-size-contact: 9pt;
+    --font-size-section: 11.5pt;
+    --font-size-subsection: 10pt;
+    --font-size-body: 9.5pt;
+    --font-size-small: 8.5pt;
+
+    --line-height-body: 1.35;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text);
+    background: #e8e8e8;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   PAGE CONTAINER
+   ============================================ */
+.page {
+    width: var(--page-width);
+    min-height: var(--page-min-height);
+    margin: 0.5in auto;
+    padding: var(--page-margin-top) var(--page-margin-x) var(--page-margin-bottom);
+    background: white;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    text-align: center;
+    margin-bottom: 0.15in;
+}
+
+.header h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-name);
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.06in;
+}
+
+.contact-info {
+    font-size: var(--font-size-contact);
+    color: var(--color-text-secondary);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 0.2in;
+    line-height: 1.6;
+}
+
+.contact-info .separator {
+    display: none;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+.section {
+    margin-top: var(--section-gap);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-section);
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1.5pt solid var(--color-rule);
+    padding-bottom: 0.03in;
+    margin-bottom: 0.1in;
+}
+
+/* ============================================
+   ENTRY (two-column: content left, date right)
+   ============================================ */
+.entry {
+    margin-bottom: var(--item-gap);
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.2in;
+}
+
+.entry-org {
+    font-size: var(--font-size-subsection);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.entry-date {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.entry-role {
+    font-size: var(--font-size-body);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin-top: 0.01in;
+}
+
+.entry-role-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.2in;
+}
+
+.entry-detail {
+    font-size: var(--font-size-body);
+    color: var(--color-text-secondary);
+    margin-top: 0.01in;
+}
+
+.entry-gpa {
+    font-size: var(--font-size-body);
+    font-weight: 700;
+    margin-top: 0.02in;
+}
+
+.entry-courses {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    margin-top: 0.01in;
+}
+
+/* ============================================
+   BULLET LISTS
+   ============================================ */
+.bullets {
+    list-style: none;
+    margin-top: 0.03in;
+    padding-left: 0.15in;
+}
+
+.bullets li {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-body);
+    padding-left: 0.08in;
+    position: relative;
+    margin-bottom: 0.01in;
+}
+
+.bullets li::before {
+    content: "•";
+    position: absolute;
+    left: -0.08in;
+    color: var(--color-text-secondary);
+}
+
+/* ============================================
+   HONORS (compact two-column)
+   ============================================ */
+.honor {
+    margin-bottom: 0.04in;
+}
+
+.honor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.2in;
+}
+
+.honor-name {
+    font-size: var(--font-size-body);
+    font-weight: 700;
+}
+
+.honor-date {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.honor-desc {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    margin-top: 0;
+}
+
+/* ============================================
+   ATHLETICS (compact)
+   ============================================ */
+.athletics-entry {
+    margin-bottom: 0.04in;
+}
+
+.athletics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.2in;
+}
+
+.athletics-team {
+    font-size: var(--font-size-body);
+    font-weight: 700;
+}
+
+.athletics-date {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.athletics-awards {
+    list-style: none;
+    padding-left: 0.15in;
+    margin-top: 0.01in;
+}
+
+.athletics-awards li {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    padding-left: 0.08in;
+    position: relative;
+}
+
+.athletics-awards li::before {
+    content: "•";
+    position: absolute;
+    left: -0.08in;
+}
+
+.award-date {
+    float: right;
+    margin-left: 0.2in;
+}
+
+/* ============================================
+   CERTIFICATIONS (star items)
+   ============================================ */
+.entry-certification {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    margin-top: 0.03in;
+    padding-left: 0.15in;
+}
+
+/* ============================================
+   SUB-ROLES (e.g., VP of Finances under a club)
+   ============================================ */
+.athletics-sub-role {
+    font-size: var(--font-size-small);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    padding-left: 0.15in;
+    margin-top: 0.01in;
+}
+
+/* ============================================
+   SERVICE HOUR LOG TABLE
+   ============================================ */
+.service-log {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-small);
+    margin-top: 0.05in;
+}
+
+.service-log thead th {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-body);
+    font-weight: 700;
+    color: var(--color-accent);
+    text-align: left;
+    border-bottom: 1pt solid var(--color-rule);
+    padding: 0.03in 0.08in 0.04in 0;
+}
+
+.service-log tbody td {
+    color: var(--color-text-secondary);
+    padding: 0.025in 0.08in 0.025in 0;
+    border-bottom: 0.5pt solid #e0e0e0;
+    vertical-align: top;
+}
+
+.service-log tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.service-log thead th:nth-child(3),
+.service-log tbody td:nth-child(3) {
+    text-align: center;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    @page {
+        size: letter;
+        margin: 0.45in 0.6in;
+    }
+
+    body {
+        background: white;
+    }
+
+    .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: 0;
+        padding: 0;
+    }
+
+    .entry, .honor, .athletics-entry {
+        break-inside: avoid;
+    }
+    .section-title {
+        break-after: avoid;
+    }
+}
+
+/* ============================================
+   SCREEN RESPONSIVE (for mobile viewing)
+   ============================================ */
+@media screen and (max-width: 700px) {
+    body {
+        background: white;
+    }
+
+    .page {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 0.3in;
+        box-shadow: none;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 0.02in;
+    }
+}
